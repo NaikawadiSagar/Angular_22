@@ -1,0 +1,121 @@
+<div class="row">
+    <div class="col-3">
+        <div class="bg-danger p-3" *ngIf="IsDivVisibility=='IsVisible'">
+            <p>Div 1 is Visible</p>
+        </div>
+    </div>
+    <div class="col-3">
+        @if(IsDivVisibility=="IsVisible")
+        {
+        <div class="bg-success p-3">
+            <p>Div 2</p>
+        </div>
+        }
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 my-1">
+        <button class="btn btn-danger mx-1" (click)="ShowDiv()">Show</button>
+        <button class="btn btn-success" (click)="HideDiv()">Hide</button>
+    </div>
+    <div class="col-3 my-1">
+        <input type="text" value="" [(ngModel)]="num1">
+        <input type="text" value="" [(ngModel)]="num2">
+    </div>
+    <div class="col-3">
+        @if(num1==num2)
+        {
+        <p>Value is Same</p>
+        }
+        @else{
+        <p>Value is Different</p>
+        }
+
+    </div>
+</div>
+
+<div class="row">
+    <div clas="col-3">
+        <input type="text" (change)="CheckCharcterIsExists()" [(ngModel)]="Charcters">
+    </div>
+
+    <div class="col-3">
+        @if(isPresent)
+        {
+        <p>Present</p>
+        }
+        @else
+        {
+        <p>Not Present</p>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <ul>
+            <li *ngFor="let froots of FrootsArray">{{froots}}</li>
+        </ul>
+    </div>
+    <div class="col-3">
+        <ul>
+            @for(FName of FrootsArray; track $index)
+            {
+            <li>{{FName}}</li>
+            }
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <table class="table table-bordered">
+            <thead>
+                <th>Sr No</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Mobile No</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emp of empObj; let srno = index">
+                    <td>{{srno+1}}</td>
+                    <td>{{emp.Name}}</td>
+                    <td>{{emp.City}}</td>
+                    <td>{{emp.Mobile_no}}</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <table class="table table-bordered">
+            <thead>
+                <th>Sr No</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Mobile No</th>
+            </thead>
+            <tbody>
+                @for(item of empObj;track $index)
+                {
+                <tr>
+                    <td>{{$index+1}}</td>
+                    <td>
+                        {{item.Name}}
+                    </td>
+                    <td>item.City</td>
+                    <td>{{item.Mobile_no}}</td>
+                </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>

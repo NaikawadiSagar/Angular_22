@@ -1,0 +1,104 @@
+<div class="row">
+
+    <!-- Batch List -->
+    <div class="col-8">
+        <div class="card">
+
+            <div class="card-header bg-warning">
+                Batch List
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Sr No</th>
+                            <th>Batch Name</th>
+                            <th>Created Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @for(item of batchListSignal(); track $index)
+                        {
+                        <tr>
+                            <td>{{$index + 1}}</td>
+                            <td>{{item.batchName}}</td>
+                            <td>{{item.createdDate}}</td>
+
+                            <td>
+                                <button class="btn btn-warning btn-sm me-2"
+                                    (click)="getBatchById(item); $event.stopPropagation()">
+                                    <i class="bi bi-pencil"></i> Edit
+                                </button>
+
+                                <button class="btn btn-danger btn-sm"
+                                    (click)="deleteBatch(item.batchId); $event.stopPropagation()">
+                                    <i class="bi bi-trash"></i> Delete
+                                </button>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Batch Form -->
+    <div class="col-4">
+        <div class="card">
+
+            <div class="card-header bg-warning">
+                Batch Form
+            </div>
+
+            <div class="card-body">
+
+                <form>
+
+                    <div class="mb-3">
+                        <label for="BatchName" class="form-label">
+                            Batch Name
+                        </label>
+
+                        <input type="hidden" name="batchId" [(ngModel)]="this.newBatchObj.batchId">
+                        <input type="text" id="BatchName" [(ngModel)]="newBatchObj.batchName" name="batchName"
+                            placeholder="Batch Name" class="form-control" autocomplete="false">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="CreatedDate" class="form-label">
+                            Created Date
+                        </label>
+
+                        <input type="date" id="CreatedDate" [(ngModel)]="newBatchObj.createdDate" name="createdDate"
+                            class="form-control">
+                    </div>
+                    @if(newBatchObj.batchId == 0)
+                    {
+                    <button type="submit" class="btn btn-success" (click)="saveNewBatch()">
+                        Save
+                    </button>
+                    }
+                    @else
+                    {
+                    <button type="button" class="btn btn-warning" (click)="updateBatch()">
+                        Update
+                    </button>
+                    }
+
+
+                    <button type="reset" class="btn btn-secondary ms-1" (click)="reset()">
+                        Reset
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>

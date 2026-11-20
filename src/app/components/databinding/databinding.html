@@ -1,0 +1,99 @@
+<h1>Interpolation Example</h1>
+
+
+
+<div class="row">
+    <div class="col-6 p-3">
+        <ul>
+            <li>{{productName}}</li>
+            <li>{{price}}</li>
+            <li>{{brand}}</li>
+            <li>{{isAvailable}}</li>
+        </ul>
+    </div>
+    <div class="col-6 p-3">
+        <h2>Hello,{{userName}}</h2>
+        <h3>Age:{{age}}</h3>
+        <h4>City:{{city}}</h4>
+        <h5>Designation:{{designation}}</h5>
+        <h6>Company: {{company}}</h6>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <img [src]="imageUrl" hegiht="200" width="200">
+        <input type="text" [value]="defaultName">
+        <button class="btn btn-primary" [disabled]="isDisabled">Click me</button>
+    </div>
+</div>
+
+<h2 [class]="cssClass">Dynamic css</h2>
+
+<div class="row">
+    <div class="col-6">
+        <h1>Student Result Card</h1>
+        <h3>Student Name: {{studentName}}</h3>
+        <h4>Roll No:{{rollNo}}</h4>
+        <div class="row">
+            <div class="col-6">
+                Subject
+            </div>
+             <div class="col-6">
+                Marks
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                Maths
+            </div>
+            <div class="col-6">
+                {{maths}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                science
+            </div>
+            <div class="col-6">
+                {{science}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                english
+            </div>
+            <div class="col-6">
+                {{english}}
+            </div>
+        </div>
+
+        
+
+        <div class="row">
+            <div class="col-6">
+                Total
+            </div>
+            <div class="col-6">
+                {{maths+science+english}}
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+<div class="row">
+    <button class="btn btn-secondary" (click)='Showmessage()'>Click Here</button>
+</div>
+<br>
+<div class="row">
+    <div class="col-6">
+        {{userName}}
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <input type="text" [(ngModel)]="userName">
+        </div>
+    </div>
+</div>
